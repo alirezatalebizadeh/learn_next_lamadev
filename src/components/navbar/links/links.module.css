@@ -21,7 +21,7 @@
   .menuBtn {
     font-size: 30px;
     font-weight: bold;
-    display: inline-block
+    display: inline-block;
   }
   .mobileLinks {
     @apply absolute top-[100px] right-0 w-1/2 flex flex-col items-center justify-center gap-[10px] overflow-hidden;
