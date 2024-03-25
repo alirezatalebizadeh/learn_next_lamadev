@@ -1,5 +1,5 @@
 import React from "react";
-import Links from "./links/links";
+import Links from "./links/Links";
 import styles from "./navbar.module.css";
 
 
