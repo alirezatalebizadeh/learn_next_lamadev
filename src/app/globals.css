@@ -61,3 +61,9 @@ a {
     width: 475px;
   }
 }
+@media screen and (max-width: 475px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+}

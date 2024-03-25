@@ -11,7 +11,7 @@
 }
 .mobileLinks,
 .menuBtn {
-  @apply hidden;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -19,8 +19,9 @@
     display: none;
   }
   .menuBtn {
-     font-size: 30px;
+    font-size: 30px;
     font-weight: bold;
+    display: inline-block
   }
   .mobileLinks {
     @apply absolute top-[100px] right-0 w-1/2 flex flex-col items-center justify-center gap-[10px] overflow-hidden;
