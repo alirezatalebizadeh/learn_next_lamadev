@@ -11,9 +11,7 @@ export default function Home() {
           Lorem imsum lorem ipsom colred red{" "}
         </p>
         <div className={styles.buttons}>
-          <button className={(styles.button, styles.leftBtn)}>
-            Learn More
-          </button>
+          <button className={styles.button}>Learn More</button>
           <button className={styles.button}>Contact</button>
         </div>
         <div className={styles.brands}>
