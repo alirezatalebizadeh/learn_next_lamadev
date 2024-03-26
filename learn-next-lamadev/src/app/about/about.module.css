@@ -49,3 +49,25 @@
   object-fit: contain;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column !important;
+  }
+
+  .boxes {
+    flex-direction: column !important;
+    gap: 30px;
+    text-align: center;
+  }
+  .title {
+    font-size: 23px !important;
+  }
+
+  .desc {
+    font-size: 16px !important;
+  }
+  .textContainer {
+    gap: 30px;
+  }
+}

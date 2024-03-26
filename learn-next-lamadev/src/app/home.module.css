@@ -9,16 +9,21 @@
   flex-direction: column;
   gap: 20px;
 }
+
 .imageContainer {
   position: relative;
   flex: 1;
 }
+
 .title {
-  font-size: 76px;
+  font-size: 30px;
+  text-wrap: wrap;
 }
+
 .desc {
-  font-size: 20px;
+  font-size: 18px;
 }
+
 .buttons {
   display: flex;
   gap: 20px;
@@ -41,10 +46,33 @@
 
 .heroImg {
   border-radius: 10px;
+  height: 400px !important;
 }
 .brands {
-  width: 500px;
+  max-width: 500px;
   height: 50px;
   position: relative;
   filter: grayscale(1);
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .buttons {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+  .desc {
+    font-size: 16px;
+  }
+  .brands {
+    width: 100%;
+  }
 }

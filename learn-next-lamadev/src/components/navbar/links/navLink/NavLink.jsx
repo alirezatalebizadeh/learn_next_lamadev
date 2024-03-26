@@ -5,7 +5,7 @@ import styles from "./NavLink.module.css";
 
 export default function Navlink({ item }) {
   const pathName = usePathname();
-  console.log(pathName);
+
   return (
     <Link
       href={item.page}

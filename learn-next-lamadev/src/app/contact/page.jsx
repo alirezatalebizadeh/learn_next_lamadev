@@ -1,5 +1,11 @@
 import Image from "next/image";
 import styles from "./contact.module.css";
+// import HydrationTest from "@/components/hydrationTest";
+import dynamic from "next/dynamic";
+
+const HydrationTestNoSSR = dynamic(() => import("@/components/hydrationTest"), {
+  ssr: false,
+});
 
 export default function ContactPage() {
   return (
@@ -7,7 +13,9 @@ export default function ContactPage() {
       <div className={styles.imgContainer}>
         <Image src="/flower2.png" className={styles.img} alt="" fill />
       </div>
+
       <div className={styles.formContainer}>
+        <HydrationTestNoSSR />
         <form action="" className={styles.form}>
           <input
             type="text"
@@ -25,6 +33,7 @@ export default function ContactPage() {
             placeholder="Phone Number (optional)"
           />
           <textarea name="" id="" placeholder="Message"></textarea>
+          <button>Submit</button>
         </form>
       </div>
     </div>

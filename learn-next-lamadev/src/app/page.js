@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className={styles.title}>Creative Thoughts Agency,</h1>
         <p className={styles.desc}>
           Lorem imsum lorem ipsom colred red Lorem imsum lorem ipsom colred red
-          Lorem imsum lorem ipsom colred red{" "}
+          Lorem imsum lorem ipsom colred red .
         </p>
         <div className={styles.buttons}>
           <button className={styles.button}>Learn More</button>
