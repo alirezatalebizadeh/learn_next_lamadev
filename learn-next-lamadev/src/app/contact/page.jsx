@@ -1,13 +1,16 @@
 import Image from "next/image";
 import styles from "./contact.module.css";
-// import HydrationTest from "@/components/hydrationTest";
 import dynamic from "next/dynamic";
 
-const HydrationTestNoSSR = dynamic(() => import("@/components/hydrationTest"), {
-  ssr: false,
-});
+// import HydrationTest from "@/components/hydrationTest";
+//! dynamic import without server side rendering
+// const HydrationTestNoSSR = dynamic(() => import("@/components/hydrationTest"), {
+//   ssr: false,
+// });
 
 export default function ContactPage() {
+  // const a = Math.random();
+
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
@@ -15,7 +18,8 @@ export default function ContactPage() {
       </div>
 
       <div className={styles.formContainer}>
-        <HydrationTestNoSSR />
+        {/* <HydrationTestNoSSR /> */}
+        {/* <div suppressHydrationWarning>{a}</div> */}
         <form action="" className={styles.form}>
           <input
             type="text"

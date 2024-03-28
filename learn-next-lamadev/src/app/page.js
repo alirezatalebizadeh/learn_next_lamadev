@@ -15,7 +15,7 @@ export default function Home() {
           <button className={styles.button}>Contact</button>
         </div>
         <div className={styles.brands}>
-          <Image src="/flower2.png" fill className={styles.brandImg} />
+          <Image src="/flower2.png" alt="" fill className={styles.brandImg} />
         </div>
       </div>
       <div className={styles.imageContainer}>

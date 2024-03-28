@@ -2,11 +2,14 @@ import Image from "next/image";
 import styles from "./about.module.css";
 
 export default function AboutPage() {
+  // const a = Math.random();
+  // console.log(a);
   return (
     <div>
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h2 className={styles.subTitle}>About Agency</h2>
+          {/* <h2>{a}</h2> */}
           <h1 className={styles.title}>
             We create digital ideas that are bigger , bolder , braver and better
             .

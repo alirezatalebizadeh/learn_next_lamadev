@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## how to create a project with next js step by step
 
-## Getting Started
+# first => create structure of project
 
-First, run the development server:
+`layout / all of pages /`
+you have to create components folder in src . because you need some components and sub-components .
+like this ...
+components/navbar/Navbar.jsx
+........../footer/Footer.jsx
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# what you learn ?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+create structure of project
+create loading
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<!-- ! note -->
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<!-- ! to fix hydration error you have 3 ways -->
 
-## Learn More
+1 ==> use usestate and useeffect =>
+const [isClient,setIsClient]= useState(false)
+const a = Math.random()
+useEffect(()=>{
+setIsClient(true)
+},[])
 
-To learn more about Next.js, take a look at the following resources:
+return <isClient && a>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2=> use dynamic import
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<!-- //! dynamic import without server side rendering -->
 
-## Deploy on Vercel
+const HydrationTestNoSSR = dynamic(() => import("@/components/hydrationTest"), {
+ssr: false,
+});
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<HydrationTestNoSSR>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3 => use suppressHydrationWarning property in your component like this
+
+<div suppressHydrationWarning>{a}</div>
+
+4==> create a components with "use client" and add all child in lauoyt in provider
+{/_ <clientSideProvider> _/}
+<div className="container" >
+<Navbar />
+{children}
+<Footer />
+</div>
+{/_ </clientSideProvider> _/}
+
+===> this is provider ==> 
+"use client";
+export default function clientSideProvider({ children }) {
+  return <div>{children}</div>;
+}
+
+
+===> 2:35:00
