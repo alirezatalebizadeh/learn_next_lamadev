@@ -1,8 +1,23 @@
 import styles from "./singlePost.module.css";
 import Image from "next/image";
 
-export default function SinglePostPage({ params }) {
-  console.log(params);
+// ! Fetch data with api
+const getData = async (Slug) => {
+  console.log(Slug);
+  //! این دیتا هر 1 ساعت یک بار اپدیت میشود
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${Slug}`);
+
+  if (!res.ok) {
+    throw new Error("Something went wrong");
+  }
+  return res.json();
+};
+
+export default async function SinglePostPage({ params }) {
+  const { Slug } = params;
+  console.log(Slug);
+  const post = await getData(Slug);
+  console.log(post);
 
   return (
     <div className={styles.container}>
@@ -33,11 +48,7 @@ export default function SinglePostPage({ params }) {
             <span className={styles.detailValue}>01.01.2024</span>
           </div>
         </div>
-        <div className={styles.content}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae,
-          cupiditate quos! Nesciunt voluptas, autem eveniet quod sit est
-          voluptatum dolor?
-        </div>
+        <div className={styles.content}>{post.body}</div>
       </div>
     </div>
   );

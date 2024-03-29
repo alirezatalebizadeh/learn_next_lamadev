@@ -15,6 +15,7 @@
 }
 .img {
   object-fit: cover;
+  border-radius: 10px !important;
 }
 .date {
   font-size: 12px;
