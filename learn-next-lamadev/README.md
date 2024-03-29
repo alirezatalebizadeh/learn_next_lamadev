@@ -42,6 +42,7 @@ ssr: false,
 
 4==> create a components with "use client" and add all child in lauoyt in provider
 {/_ <clientSideProvider> _/}
+
 <div className="container" >
 <Navbar />
 {children}
@@ -49,11 +50,32 @@ ssr: false,
 </div>
 {/_ </clientSideProvider> _/}
 
-===> this is provider ==> 
+===> this is provider ==>
 "use client";
 export default function clientSideProvider({ children }) {
-  return <div>{children}</div>;
+return <div>{children}</div>;
 }
 
+==============================HOOK SEREVR=========
+<!-- !ما یه سری هوگ داریم که سمت سرور اجرا میشن. توی هر کامپوننتی میتونیم ازش استفاده کنیم. مثل اینا -->
+this is work in server.
 
-===> 2:35:00
+export default async function BlugPage({ params, searchParams }) {
+  <!-- !params and searchParams is a hook in server -->
+  console.log(params, searchParams);
+  const posts = await getData();
+  return (
+    <div className={styles.container}>
+      {posts.map((post) => (
+        <div key={post.id} className={styles.post}>
+          <PostCard post={post} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+----------------------------------client hook ============
+example => navigation page => این هوگ ها سمت مرورگر اجرا میشن
+----------------------------------=======================
+2:30:51 =>

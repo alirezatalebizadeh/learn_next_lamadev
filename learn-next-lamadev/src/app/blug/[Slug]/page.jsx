@@ -1,11 +1,12 @@
+import PostUser from "@/components/postUser/postUser";
 import styles from "./singlePost.module.css";
 import Image from "next/image";
+import { Suspense } from "react";
 
-// ! Fetch data with api
+// ! FETCH DATA WITH API
 const getData = async (Slug) => {
-  console.log(Slug);
   //! این دیتا هر 1 ساعت یک بار اپدیت میشود
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${Slug}`);
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${Slug}`,{cache:"no-store"});
 
   if (!res.ok) {
     throw new Error("Something went wrong");
@@ -15,9 +16,7 @@ const getData = async (Slug) => {
 
 export default async function SinglePostPage({ params }) {
   const { Slug } = params;
-  console.log(Slug);
   const post = await getData(Slug);
-  console.log(post);
 
   return (
     <div className={styles.container}>
@@ -30,7 +29,7 @@ export default async function SinglePostPage({ params }) {
         />
       </div>
       <div className={styles.textContainer}>
-        <h1 className={styles.title}></h1>
+        <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
           <Image
             src="/flower2.png"
@@ -39,10 +38,9 @@ export default async function SinglePostPage({ params }) {
             className={styles.avatar}
             alt="single image"
           />
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Author</span>
-            <span className={styles.detailValue}>Date</span>
-          </div>
+          <Suspense fallback={<div>loading ...</div>}>
+            <PostUser userId={post.userId} />
+          </Suspense>
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>01.01.2024</span>

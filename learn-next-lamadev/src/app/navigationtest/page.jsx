@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 // ! learn navigation
 export default function NavigationText() {
-  //! Client Side Navigation
+  // ! Client Side Navigation
   const router = useRouter();
   const pathName = usePathname();
   const searchParsm = useSearchParams();
@@ -18,6 +18,7 @@ export default function NavigationText() {
     console.log("clicked");
 
     // router.replace("/");
+    // router.refresh()
     router.back();
     // router.forward();
   };
